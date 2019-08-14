@@ -10,6 +10,7 @@
     <artifactId>eureka-server</artifactId>
     <version>1.0.0</version>
     <name>eureka-server</name>
+    <packaging>jar</packaging>
     <description>eureka-server</description>
 
     <dependencies>

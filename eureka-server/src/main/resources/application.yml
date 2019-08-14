@@ -4,12 +4,12 @@ eureka:
   instance:
     hostname: localhost
   client:
-    # 是否将自己注册到Eureka Server，默认为true
+    # 鏄惁灏嗚嚜宸辨敞鍐屽埌Eureka Server锛岄粯璁や负true
     registerWithEureka: false
-    # 是否从Eureka Server获取注册信息，默认为true
+    # 鏄惁浠嶦ureka Server鑾峰彇娉ㄥ唽淇℃伅锛岄粯璁や负true
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 spring:
   application:
-    name: eureka-server
+    name: eureka-server-8761
