@@ -1,15 +1,50 @@
+spring:
+  application:
+    name: eureka-server
+  profiles: peer1
 server:
-  port: 8761
+  port: 8000
 eureka:
   instance:
     hostname: localhost
   client:
-    # 是否将自己注册到Eureka Server，默认为true
-    registerWithEureka: false
-    # 是否从Eureka Server获取注册信息，默认为true
-    fetchRegistry: false
+#    # 是否将自己注册到Eureka Server，默认为true
+#    registerWithEureka: false
+#    # 是否从Eureka Server获取注册信息，默认为true
+#    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://localhost:8001/eureka/,http://localhost:8002/eureka/
+---
 spring:
   application:
-    name: eureka-server-8761
+    name: eureka-server
+    profiles: peer2
+server:
+  port: 8001
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    #    # 是否将自己注册到Eureka Server，默认为true
+    #    registerWithEureka: false
+    #    # 是否从Eureka Server获取注册信息，默认为true
+    #    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/,http://localhost:8002/eureka/
+---
+spring:
+  application:
+    name: eureka-server
+    profiles: peer3
+server:
+  port: 8002
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    #    # 是否将自己注册到Eureka Server，默认为true
+    #    registerWithEureka: false
+    #    # 是否从Eureka Server获取注册信息，默认为true
+    #    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/,http://localhost:8001/eureka/
