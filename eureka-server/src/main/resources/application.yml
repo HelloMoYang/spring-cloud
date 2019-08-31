@@ -3,48 +3,52 @@ spring:
     name: eureka-server
   profiles: peer1
 server:
-  port: 8000
+  port: 9101
 eureka:
   instance:
-    hostname: localhost
+    hostname: peer1
+    # 使用IP注册到其他节点时需设置此参数为true
+#    prefer-ip-address: true
   client:
 #    # 是否将自己注册到Eureka Server，默认为true
 #    registerWithEureka: false
 #    # 是否从Eureka Server获取注册信息，默认为true
 #    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://localhost:8001/eureka/,http://localhost:8002/eureka/
+      defaultZone: http://peer2:9102/eureka/,http://peer3:9103/eureka/
 ---
 spring:
   application:
     name: eureka-server
-    profiles: peer2
+  profiles: peer2
 server:
-  port: 8001
+  port: 9102
 eureka:
   instance:
-    hostname: localhost
+    hostname: peer2
+#    prefer-ip-address: true
   client:
     #    # 是否将自己注册到Eureka Server，默认为true
     #    registerWithEureka: false
     #    # 是否从Eureka Server获取注册信息，默认为true
     #    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://localhost:8000/eureka/,http://localhost:8002/eureka/
+      defaultZone: http://peer1:9101/eureka/,http://peer3:9103/eureka/
 ---
 spring:
   application:
     name: eureka-server
-    profiles: peer3
+  profiles: peer3
 server:
-  port: 8002
+  port: 9103
 eureka:
   instance:
-    hostname: localhost
+    hostname: peer3
+#    prefer-ip-address: true
   client:
     #    # 是否将自己注册到Eureka Server，默认为true
     #    registerWithEureka: false
     #    # 是否从Eureka Server获取注册信息，默认为true
     #    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://localhost:8000/eureka/,http://localhost:8001/eureka/
+      defaultZone: http://peer1:9101/eureka/,http://peer2:9102/eureka/

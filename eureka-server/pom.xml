@@ -5,10 +5,10 @@
     <parent>
         <groupId>com.example</groupId>
         <artifactId>spring-cloud</artifactId>
-        <version>1.0.0</version>
+        <version>1.0</version>
     </parent>
     <artifactId>eureka-server</artifactId>
-    <version>1.0.0</version>
+    <version>1.0</version>
     <name>eureka-server</name>
     <packaging>jar</packaging>
     <description>eureka-server</description>
