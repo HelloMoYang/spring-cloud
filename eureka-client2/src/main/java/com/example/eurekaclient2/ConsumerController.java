@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ConsumerController {
 
     @Autowired
-    HiRemoteClient remoteClient;
+    private HiRemoteClient remoteClient;
 
     @GetMapping(value = "/remote-test")
     public String getRemote(@RequestParam(name = "name") String name){
