@@ -1,4 +1,4 @@
-package com.example.eurekaclient;
+package com.example.eurekaclient1;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
