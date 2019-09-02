@@ -11,12 +11,14 @@ eureka:
       defaultZone: http://peer1:9101/eureka/
 spring:
   application:
-    name: client1
+    name: provider
   profiles: provider1
+
+name: provider1
 
 ---
 server:
-  port: 9106
+  port: 9105
 
 eureka:
   client:
@@ -28,5 +30,7 @@ eureka:
       defaultZone: http://peer1:9101/eureka/
 spring:
   application:
-    name: client1
+    name: provider
   profiles: provider2
+
+name: provider2

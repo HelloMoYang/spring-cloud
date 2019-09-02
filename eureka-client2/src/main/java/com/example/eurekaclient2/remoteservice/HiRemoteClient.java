@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Service
-@FeignClient(name = "client1")
+@FeignClient(name = "provider")
 public interface HiRemoteClient {
 
     @GetMapping(value = "/hello")

@@ -1,5 +1,5 @@
 server:
-  port: 9105
+  port: 9106
 
 eureka:
   client:
@@ -11,4 +11,4 @@ eureka:
       defaultZone: http://peer1:9101/eureka/
 spring:
   application:
-    name: client2
+    name: consumer
