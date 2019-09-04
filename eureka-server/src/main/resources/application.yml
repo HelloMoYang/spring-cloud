@@ -3,7 +3,7 @@ spring:
     name: eureka-server
   profiles: peer1
 server:
-  port: 9101
+  port: 9001
 eureka:
   instance:
     hostname: peer1
@@ -15,14 +15,19 @@ eureka:
 #    # 是否从Eureka Server获取注册信息，默认为true
 #    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://peer2:9102/eureka/,http://peer3:9103/eureka/
+      defaultZone: http://peer2:9002/eureka/,http://peer3:9003/eureka/
+zuul:
+  routes:
+    provider:
+      path: /provider/**
+      serviceId: provider1
 ---
 spring:
   application:
     name: eureka-server
   profiles: peer2
 server:
-  port: 9102
+  port: 9002
 eureka:
   instance:
     hostname: peer2
@@ -33,14 +38,14 @@ eureka:
     #    # 是否从Eureka Server获取注册信息，默认为true
     #    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://peer1:9101/eureka/,http://peer3:9103/eureka/
+      defaultZone: http://peer1:9001/eureka/,http://peer3:9003/eureka/
 ---
 spring:
   application:
     name: eureka-server
   profiles: peer3
 server:
-  port: 9103
+  port: 9003
 eureka:
   instance:
     hostname: peer3
@@ -51,4 +56,4 @@ eureka:
     #    # 是否从Eureka Server获取注册信息，默认为true
     #    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://peer1:9101/eureka/,http://peer2:9102/eureka/
+      defaultZone: http://peer1:9001/eureka/,http://peer2:9002/eureka/
