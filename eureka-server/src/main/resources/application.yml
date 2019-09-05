@@ -19,8 +19,8 @@ eureka:
 zuul:
   routes:
     provider:
-      path: /provider/**
-      serviceId: provider1
+      path: /microservice/**
+      serviceId: provider
 ---
 spring:
   application:
@@ -39,6 +39,11 @@ eureka:
     #    fetchRegistry: false
     serviceUrl:
       defaultZone: http://peer1:9001/eureka/,http://peer3:9003/eureka/
+zuul:
+  routes:
+    provider:
+      path: /microservice/**
+      serviceId: provider
 ---
 spring:
   application:
@@ -57,3 +62,8 @@ eureka:
     #    fetchRegistry: false
     serviceUrl:
       defaultZone: http://peer1:9001/eureka/,http://peer2:9002/eureka/
+zuul:
+  routes:
+    provider:
+      path: /microservice/**
+      serviceId: provider

@@ -1,7 +1,5 @@
 server:
   port: 9004
-  servlet:
-    context-path: /provider
 eureka:
   client:
     # 是否将自己注册到Eureka Server，默认为true
@@ -19,8 +17,6 @@ name: provider1
 ---
 server:
   port: 9005
-  servlet:
-    context-path: /provider
 eureka:
   client:
     # 是否将自己注册到Eureka Server，默认为true
